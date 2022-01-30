@@ -32,5 +32,13 @@ No requirements for using this package. It built using pure Javascript.
 <br /><br />
 
 # Installation
-### For `Node.js`, `React.js` & `React Native`:
-```npm i gre-geoip --save```
+For Node.js, React.js & React Native:
+```
+npm i gre-geoip --save
+```
+<br />
+
+For Browser:
+```html
+<script src="https://cdn.jsdelivr.net/npm/gre-geoip@latest/gre-geoip.min.js"></script>
+```
