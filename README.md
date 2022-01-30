@@ -11,4 +11,4 @@
 
 ---
 
-![NPM Package](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white "NPM Package")
+[![NPM Package](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white "NPM Package")](https://www.npmjs.com/package/gre-geoip)
