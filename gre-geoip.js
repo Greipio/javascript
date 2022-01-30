@@ -35,17 +35,12 @@ class GREGeoIP {
         xmlHttp.send(null);
     }
 
-    geoip(options = {
-        'params': '',
-        'format': 'JSON',
-        'lang': 'EN',
-        'mode': 'live'
-    }) {
+    geoip(options = {}) {
         return new Promise((resolve, reject) => {
-            let params = options.params;
-            let format = options.format;
-            let lang = options.lang;
-            let mode = options.mode;
+            let params = options.params || [];
+            let format = options.format || 'JSON';
+            let lang = options.lang || 'EN';
+            let mode = options.mode || 'live';
             lang = lang.toUpperCase();
 
             // Validate the params variable items
@@ -83,19 +78,13 @@ class GREGeoIP {
         });
     }
 
-    lookup(options = {
-        'ip': '',
-        'params': [],
-        'format': 'JSON',
-        'lang': 'EN',
-        'mode': 'live'
-    }) {
+    lookup(options = {}) {
         return new Promise((resolve, reject) => {
-            let ip = options.ip;
-            let params = options.params;
-            let format = options.format;
-            let lang = options.lang;
-            let mode = options.mode;
+            let ip = options.ip || '';
+            let params = options.params || [];
+            let format = options.format || 'JSON';
+            let lang = options.lang || 'EN';
+            let mode = options.mode || 'live';
             lang = lang.toUpperCase();
 
             // Validate the ip variable
@@ -139,19 +128,13 @@ class GREGeoIP {
         });
     }
 
-    country(options = {
-        'countryCode': '',
-        'params': [],
-        'format': 'JSON',
-        'lang': 'EN',
-        'mode': 'live'
-    }) {
+    country(options = {}) {
         return new Promise((resolve, reject) => {
-            let countryCode = options.countryCode;
-            let params = options.params;
-            let format = options.format;
-            let lang = options.lang;
-            let mode = options.mode;
+            let countryCode = options.countryCode || '';
+            let params = options.params || [];
+            let format = options.format || 'JSON';
+            let lang = options.lang || 'EN';
+            let mode = options.mode || 'live';
             countryCode = countryCode.toUpperCase();
             lang = lang.toUpperCase();
 

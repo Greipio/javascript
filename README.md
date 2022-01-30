@@ -19,7 +19,7 @@
 
 [![npm version](https://badge.fury.io/js/gre-geoip.svg)](https://badge.fury.io/js/gre-geoip)
 &nbsp;&nbsp;
-![npm](https://img.shields.io/npm/dt/gre-geoip?label=npm%20downloads&logo=npm)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gre-dev/GeoIP-JS?color=green&label=Minified%20size&logo=github)
 &nbsp;&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <br /><br />
@@ -32,6 +32,10 @@ No requirements for using this package.
 For Node.js, React.js & React Native:
 ```
 npm i gre-geoip --save
+```
+or
+```
+yarn add gre-geoip
 ```
 <br />
 
