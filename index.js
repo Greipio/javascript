@@ -1,4 +1,5 @@
-class GREGeoIP {
+const axios = require('axios').default;
+module.exports = class GREGeoIP {
     #key;
     #baseURL = 'https://gregeoip.com/';
     #availableGeoIPParams = ['security', 'timezone', 'currency', 'device'];
@@ -7,9 +8,10 @@ class GREGeoIP {
     #availableCountryParams = ['language', 'flag', 'currency', 'timezone'];
 
     constructor(key) {
-        if (this.#key.length > 0){
+        if (key && key.length > 0) {
             this.#key = key;
-        }else{
+        } else {
+            console.log(key);
             throw new Error('You should pass the API Key.');
         }
     }
@@ -25,14 +27,19 @@ class GREGeoIP {
 
     #makeHttpRquest(endpoint, options, callback) {
         options.source = 'JS-Package';
-        let xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                callback(xmlHttp.responseText);
-            }
-        }
-        xmlHttp.open('GET', this.#baseURL + '/' + endpoint + '?' + this.#serialize(options), true); // true for asynchronous 
-        xmlHttp.send(null);
+
+        axios.get(this.#baseURL + '/' + endpoint + '?' + this.#serialize(options))
+            .then(function (response) {
+                if (response.status === 200) {
+                    callback(response.data);
+                } else {
+                    throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+                }
+            })
+            .catch(function (error) {
+                console.error(error);
+                throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+            });
     }
 
     geoip(params = [], format = 'JSON', lang = 'EN', mode = 'live') {
@@ -79,7 +86,7 @@ class GREGeoIP {
             lang = lang.toUpperCase();
 
             // Validate the ip variable
-            if (ip.length < 7){
+            if (ip.length < 7) {
                 reject(new Error('You should pass the `ip` parameter.'))
             }
 
@@ -125,7 +132,7 @@ class GREGeoIP {
             lang = lang.toUpperCase();
 
             // Validate the countryCode variable
-            if (countryCode.length !== 2){
+            if (countryCode.length !== 2) {
                 reject(new Error('You should pass the `countryCode` parameter. Also, it should be a `ISO 3166-1 alpha-2` format.\nRead more at: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2'));
             }
 

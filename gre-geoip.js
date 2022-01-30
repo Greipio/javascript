@@ -7,7 +7,7 @@ class GREGeoIP {
     #availableCountryParams = ['language', 'flag', 'currency', 'timezone'];
 
     constructor(key) {
-        if (this.#key.length > 0){
+        if (key && key.length > 0){
             this.#key = key;
         }else{
             throw new Error('You should pass the API Key.');
