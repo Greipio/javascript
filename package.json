@@ -1,6 +1,6 @@
 {
   "name": "gre-geoip",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The official JS library for GRE GeoIP API.",
   "main": "index.js",
   "scripts": {
