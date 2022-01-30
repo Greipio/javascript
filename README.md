@@ -42,3 +42,43 @@ For Browser:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/gre-geoip@latest/gre-geoip.min.js"></script>
 ```
+<br /><br />
+
+# Usage
+Let's say that we want to get the visitor IP Address. So we do the following:
+<br /><br />
+
+For Node.js, React.js & React Native:
+```javascript
+const GREGeoIP = require('gre-geoip');
+const GeoIP = new GREGeoIP('<API-Key>');
+
+GeoIP.geoip().then(res => {
+    console.log(res?.data?.ip);
+});
+```
+<br />
+
+For Browser:
+```html
+<script>
+    const GeoIP = new GREGeoIP('<API-Key>');
+
+    GeoIP.geoip().then(res => {
+        console.log(res?.data?.ip);
+    });
+</script>
+```
+
+<br /><br />
+# Options, Methods and More
+You can find the full guide of this package by visiting our [Documentation Page](https://geoip-docs.gredev.io).
+
+<br /><br />
+# Credits
+* [GRE Development Ltd.](https://www.gredev.io/en/)
+* [All Contributors](https://github.com/gre-dev/GeoIP-JS/graphs/contributors)
+
+<br /><br />
+# License
+The MIT License (MIT). Please see [License](https://github.com/gre-dev/GeoIP-JS/blob/main/LICENSE) File for more information.
