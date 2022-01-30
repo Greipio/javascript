@@ -35,32 +35,38 @@ class GREGeoIP {
         xmlHttp.send(null);
     }
 
-    geoip(params = [], format = 'JSON', lang = 'EN', mode = 'live') {
+    geoip(options = {
+        'params': '',
+        'format': 'JSON',
+        'lang': 'EN',
+        'mode': 'live'
+    }) {
         return new Promise((resolve, reject) => {
+            let { params, format, lang, mode } = options;
             lang = lang.toUpperCase();
 
             // Validate the params variable items
             params.forEach(perParam => {
                 if (perParam.length > 0) {
                     if (!this.#availableGeoIPParams.includes(perParam)) {
-                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/options/custom-modules-response'));
+                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options'));
                     }
                 }
             });
 
             // Validate the format variable
             if (!this.#availableFormats.includes(format)) {
-                reject(new Error('The `format` option value "' + lang + '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/options/response-format'));
+                reject(new Error('The `format` option value "' + lang + '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options'));
             }
 
             // Validate the lang variable
             if (!this.#availableLanguages.includes(lang)) {
-                reject(new Error('The `lang` option value "' + lang + '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/options/localization'));
+                reject(new Error('The `lang` option value "' + lang + '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options'));
             }
 
             // Validate the mode variable
             if (mode !== 'live' && mode !== 'test') {
-                reject(new Error('The `mode` option value "' + lang + '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/options/development-environment'));
+                reject(new Error('The `mode` option value "' + lang + '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options'));
             }
             this.#makeHttpRquest('GeoIP', {
                 'key': this.#key,
@@ -74,8 +80,15 @@ class GREGeoIP {
         });
     }
 
-    lookup(ip, params = [], format = 'JSON', lang = 'EN', mode = 'live') {
+    lookup(options = {
+        'ip': '',
+        'params': [],
+        'format': 'JSON',
+        'lang': 'EN',
+        'mode': 'live'
+    }) {
         return new Promise((resolve, reject) => {
+            let { ip, params, format, lang, mode } = options;
             lang = lang.toUpperCase();
 
             // Validate the ip variable
@@ -87,24 +100,24 @@ class GREGeoIP {
             params.forEach(perParam => {
                 if (perParam.length > 0) {
                     if (!this.#availableGeoIPParams.includes(perParam)) {
-                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/options/custom-modules-response'));
+                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options'));
                     }
                 }
             });
 
             // Validate the format variable
             if (!this.#availableFormats.includes(format)) {
-                reject(new Error('The `format` option value "' + lang + '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/options/response-format'));
+                reject(new Error('The `format` option value "' + lang + '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options'));
             }
 
             // Validate the lang variable
             if (!this.#availableLanguages.includes(lang)) {
-                reject(new Error('The `lang` option value "' + lang + '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/options/localization'));
+                reject(new Error('The `lang` option value "' + lang + '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options'));
             }
 
             // Validate the mode variable
             if (mode !== 'live' && mode !== 'test') {
-                reject(new Error('The `mode` option value "' + lang + '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/options/development-environment'));
+                reject(new Error('The `mode` option value "' + lang + '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options'));
             }
             this.#makeHttpRquest('IPLookup', {
                 'ip': ip,
@@ -119,8 +132,15 @@ class GREGeoIP {
         });
     }
 
-    country(countryCode, params = [], format = 'JSON', lang = 'EN', mode = 'live') {
+    country(options = {
+        'countryCode': '',
+        'params': [],
+        'format': 'JSON',
+        'lang': 'EN',
+        'mode': 'live'
+    }) {
         return new Promise((resolve, reject) => {
+            let { countryCode, params, format, lang, mode } = options;
             countryCode = countryCode.toUpperCase();
             lang = lang.toUpperCase();
 
@@ -133,24 +153,24 @@ class GREGeoIP {
             params.forEach(perParam => {
                 if (perParam.length > 0) {
                     if (!this.#availableCountryParams.includes(perParam)) {
-                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `language`, `flag`, `currency` and/or `timezone`.\nRead more at: https://geoip-docs.gredev.io/methods/country-data-api#possible-param'));
+                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `language`, `flag`, `currency` and/or `timezone`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options'));
                     }
                 }
             });
 
             // Validate the format variable
             if (!this.#availableFormats.includes(format)) {
-                reject(new Error('The `format` option value "' + lang + '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/options/response-format'));
+                reject(new Error('The `format` option value "' + lang + '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options'));
             }
 
             // Validate the lang variable
             if (!this.#availableLanguages.includes(lang)) {
-                reject(new Error('The `lang` option value "' + lang + '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/options/localization'));
+                reject(new Error('The `lang` option value "' + lang + '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options'));
             }
 
             // Validate the mode variable
             if (mode !== 'live' && mode !== 'test') {
-                reject(new Error('The `mode` option value "' + lang + '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/options/development-environment'));
+                reject(new Error('The `mode` option value "' + lang + '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options'));
             }
             this.#makeHttpRquest('Country', {
                 'CountryCode': countryCode,

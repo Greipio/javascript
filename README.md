@@ -5,7 +5,7 @@
     <a href="https://github.com/gre-dev/GeoIP-JS/issues/new">Report Issue</a> · 
     <a href="https://github.com/gre-dev/GeoIP-JS/discussions/new">Request Feature</a> · 
     <a href="https://www.gredev.io/en/GeoIP" target="_BLANK">API Home Page</a> · 
-    <a href="https://geoip-docs.gredev.io" target="_BLANK">API Docs</a>
+    <a href="https://geoip-docs.gredev.io/sdks/js" target="_BLANK">API Docs</a>
     <br />
     <br />
     <a href="https://www.npmjs.com/package/gre-geoip" title="NPM Package" href="_BLANK"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"></a>
@@ -22,13 +22,10 @@
 ![npm](https://img.shields.io/npm/dt/gre-geoip?label=npm%20downloads&logo=npm)
 &nbsp;&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-&nbsp;&nbsp;
-![Latest Stable Version](https://badges.aleen42.com/src/javascript.svg)
-
 <br /><br />
 
 # Requirements
-No requirements for using this package. It built using pure Javascript.
+No requirements for using this package.
 <br /><br />
 
 # Installation
@@ -72,7 +69,7 @@ For Browser:
 
 <br /><br />
 # Options, Methods and More
-You can find the full guide of this package by visiting our [Documentation Page](https://geoip-docs.gredev.io).
+You can find the full guide of this package by visiting our [Documentation Page](https://geoip-docs.gredev.io/sdks/js).
 
 <br /><br />
 # Credits
