@@ -49,7 +49,10 @@ module.exports = class GREGeoIP {
         'mode': 'live'
     }) {
         return new Promise((resolve, reject) => {
-            let { params, format, lang, mode } = options;
+            let params = options.params;
+            let format = options.format;
+            let lang = options.lang;
+            let mode = options.mode;
             lang = lang.toUpperCase();
 
             // Validate the params variable items
@@ -95,7 +98,11 @@ module.exports = class GREGeoIP {
         'mode': 'live'
     }) {
         return new Promise((resolve, reject) => {
-            let { ip, params, format, lang, mode } = options;
+            let ip = options.ip;
+            let params = options.params;
+            let format = options.format;
+            let lang = options.lang;
+            let mode = options.mode;
             lang = lang.toUpperCase();
 
             // Validate the ip variable
@@ -147,7 +154,11 @@ module.exports = class GREGeoIP {
         'mode': 'live'
     }) {
         return new Promise((resolve, reject) => {
-            let { countryCode, params, format, lang, mode } = options;
+            let countryCode = options.countryCode;
+            let params = options.params;
+            let format = options.format;
+            let lang = options.lang;
+            let mode = options.mode;
             countryCode = countryCode.toUpperCase();
             lang = lang.toUpperCase();
 
