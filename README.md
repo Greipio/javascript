@@ -9,11 +9,28 @@
     <br />
     <br />
     <a href="https://www.npmjs.com/package/gre-geoip" title="NPM Package" href="_BLANK"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"></a>
-    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" title="Javascript">
     <a href="https://github.com/gre-dev/GeoIP-JS" title="Github Repo" href="_BLANK"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" title="Javascript">
 </div>
 <br />
 
 ---
+<br />
+
+[![npm version](https://badge.fury.io/js/gre-geoip.svg)](https://badge.fury.io/js/gre-geoip)
+&nbsp;&nbsp;
+![npm](https://img.shields.io/npm/dt/gre-geoip?label=npm%20downloads&logo=npm)
+&nbsp;&nbsp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+&nbsp;&nbsp;
+![Latest Stable Version](https://badges.aleen42.com/src/javascript.svg)
+
+<br /><br />
 
 # Requirements
+No requirements for using this package. It built using pure Javascript.
+<br /><br />
+
+# Installation
+### For `Node.js`, `React.js` & `React Native`:
+```npm i gre-geoip --save```
