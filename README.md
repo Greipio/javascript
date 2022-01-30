@@ -37,7 +37,7 @@ npm i gre-geoip --save
 
 For Browser:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gre-geoip@latest/gre-geoip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gre-dev/GeoIP-JS@latest/gre-geoip.min.js"></script>
 ```
 <br /><br />
 
