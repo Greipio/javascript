@@ -4,9 +4,7 @@
   "description": "The official JS library for GRE GeoIP API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No test specified\"",
-    "lint": "npx lint '**/*.js'",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
+    "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
@@ -27,8 +25,5 @@
   "dependencies": {
     "axios": "^0.25.0"
   },
-  "devDependencies": {
-    "coveralls": "^3.1.1",
-    "lint": "^0.7.0"
-  }
+  "devDependencies": {}
 }
