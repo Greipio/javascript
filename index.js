@@ -54,7 +54,7 @@ module.exports = class GREGeoIP {
             params.forEach(perParam => {
                 if (perParam.length > 0) {
                     if (!this.#availableGeoIPParams.includes(perParam)) {
-                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options'));
+                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options'));
                     }
                 }
             });
@@ -104,7 +104,7 @@ module.exports = class GREGeoIP {
             params.forEach(perParam => {
                 if (perParam.length > 0) {
                     if (!this.#availableGeoIPParams.includes(perParam)) {
-                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options'));
+                        reject(new Error('The "' + perParam + '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options'));
                     }
                 }
             });
