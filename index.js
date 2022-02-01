@@ -2,7 +2,7 @@ const axios = require('axios').default;
 module.exports = class GREGeoIP {
     #key;
     #baseURL = 'https://gregeoip.com/';
-    #availableGeoIPParams = ['security', 'timezone', 'currency', 'device'];
+    #availableGeoIPParams = ['location', 'security', 'timezone', 'currency', 'device'];
     #availableLanguages = ['EN', 'AR', 'DE', 'FR', 'ES', 'JA', 'ZH', 'RU'];
     #availableFormats = ['JSON', 'XML', 'CSV', 'Newline'];
     #availableCountryParams = ['language', 'flag', 'currency', 'timezone'];
