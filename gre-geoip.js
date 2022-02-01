@@ -73,6 +73,7 @@ class GREGeoIP {
                 'lang': lang,
                 'mode': mode
             }, (res) => {
+                if (typeof res !== 'object') res = JSON.parse(res);
                 resolve(res);
             });
         });
@@ -123,6 +124,7 @@ class GREGeoIP {
                 'lang': lang,
                 'mode': mode
             }, (res) => {
+                if (typeof res !== 'object') res = JSON.parse(res);
                 resolve(res);
             });
         });
@@ -174,6 +176,7 @@ class GREGeoIP {
                 'lang': lang,
                 'mode': mode
             }, (res) => {
+                if (typeof res !== 'object') res = JSON.parse(res);
                 resolve(res);
             });
         });

@@ -80,6 +80,7 @@ module.exports = class GREGeoIP {
                 'lang': lang,
                 'mode': mode
             }, (res) => {
+                if (typeof res !== 'object') res = JSON.parse(res);
                 resolve(res);
             });
         });
@@ -130,6 +131,7 @@ module.exports = class GREGeoIP {
                 'lang': lang,
                 'mode': mode
             }, (res) => {
+                if (typeof res !== 'object') res = JSON.parse(res);
                 resolve(res);
             });
         });
@@ -182,6 +184,7 @@ module.exports = class GREGeoIP {
                 'lang': lang,
                 'mode': mode
             }, (res) => {
+                if (typeof res !== 'object') res = JSON.parse(res);
                 resolve(res);
             });
         });
