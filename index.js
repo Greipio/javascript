@@ -28,7 +28,7 @@
         ],
         "parameters": [
           {
-            "in": "path",
+            "in": "paths",
             "name": "userId",
             "type": "integer",
             "required": true,
