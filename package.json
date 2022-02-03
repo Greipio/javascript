@@ -2,26 +2,30 @@
   "name": "gre-geoip",
   "version": "1.2.6",
   "description": "The official JS library for GRE GeoIP API.",
+  "author": {
+    "name": "GRE Development Ltd.",
+    "email": "info@gredev.io",
+    "url": "https://www.gredev.io/en/"
+  },
+  "keywords": ["ip", "api", "geolocation", "geoip"],
+  "homepage": "https://github.com/gre-dev/GeoIP-JS#readme",
+  "bugs": {
+    "url": "https://github.com/gre-dev/GeoIP-JS/issues",
+    "email": "info@gredev.io"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/gredev"
+  },
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gre-dev/GeoIP-JS.git"
+    "url": "https://github.com/gre-dev/GeoIP-JS.git"
   },
-  "keywords": [
-    "ip",
-    "api",
-    "geolocation",
-    "geoip"
-  ],
-  "author": "GRE Development Ltd.",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gre-dev/GeoIP-JS/issues"
-  },
-  "homepage": "https://github.com/gre-dev/GeoIP-JS#readme",
   "dependencies": {
     "axios": "^0.25.0"
   },
