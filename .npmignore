@@ -1,4 +1,5 @@
 node_modules
 example
+tests
 gre-gelip.js
 gre-geoip.min.js
