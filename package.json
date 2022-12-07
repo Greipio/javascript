@@ -1,12 +1,12 @@
 {
-  "name": "gre-geoip",
-  "version": "1.2.8",
-  "description": "The official JS library for GRE GeoIP API.",
+  "name": "greip.js",
+  "version": "2.0.0",
+  "description": "The official JS library of Greip.",
   "type": "module",
   "author": {
     "name": "GRE Development Ltd.",
-    "email": "info@gredev.io",
-    "url": "https://www.gredev.io/en/"
+    "email": "info@greip.io",
+    "url": "https://greip.io"
   },
   "license": "MIT",
   "main": "index.js",
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/gre-dev/Greip-JS#readme",
   "bugs": {
     "url": "https://github.com/gre-dev/Greip-JS/issues",
-    "email": "info@gredev.io"
+    "email": "info@greip.io"
   },
   "funding": {
     "type": "patreon",
