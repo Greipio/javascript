@@ -15,10 +15,10 @@ export const GeoIP = (options: Options) => {
   }
 
   return new Promise((resolve, reject) => {
-    let params = options.params || [];
-    let format = options.format || 'JSON';
+    const params = options.params || [];
+    const format = options.format || 'JSON';
     let lang = options.lang || 'EN';
-    let mode = options.mode || 'live';
+    const mode = options.mode || 'live';
     lang = lang.toUpperCase();
 
     // Validate the params variable items
@@ -71,11 +71,11 @@ export const GeoIP = (options: Options) => {
     makeHttpRquest(
       'GeoIP',
       {
-        key: options.key,
-        params: params.join(','),
-        format: format,
-        lang: lang,
-        mode: mode,
+        "key": options.key,
+        "params": params.join(','),
+        "format": format,
+        "lang": lang,
+        "mode": mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -93,11 +93,11 @@ export const Lookup = (options: Options) => {
   }
 
   return new Promise((resolve, reject) => {
-    let ip = options.ip || '';
-    let params = options.params || [];
-    let format = options.format || 'JSON';
+    const ip = options.ip || '';
+    const params = options.params || [];
+    const format = options.format || 'JSON';
     let lang = options.lang || 'EN';
-    let mode = options.mode || 'live';
+    const mode = options.mode || 'live';
     lang = lang.toUpperCase();
 
     // Validate the ip variable
@@ -155,12 +155,12 @@ export const Lookup = (options: Options) => {
     makeHttpRquest(
       'IPLookup',
       {
-        ip: ip,
-        key: options.key,
-        params: params.join(','),
-        format: format,
-        lang: lang,
-        mode: mode,
+        "ip": ip,
+        "key": options.key,
+        "params": params.join(','),
+        "format": format,
+        "lang": lang,
+        "mode": mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -179,10 +179,10 @@ export const BulkLookup = (options: Options) => {
 
   return new Promise((resolve, reject) => {
     let ips = options.ips || [];
-    let params = options.params || [];
-    let format = options.format || 'JSON';
+    const params = options.params || [];
+    const format = options.format || 'JSON';
     let lang = options.lang || 'EN';
-    let mode = options.mode || 'live';
+    const mode = options.mode || 'live';
     lang = lang.toUpperCase();
 
     if (typeof ips !== 'object') ips = [];
@@ -247,12 +247,12 @@ export const BulkLookup = (options: Options) => {
     makeHttpRquest(
       'BulkLookup',
       {
-        ips: ips,
-        key: options.key,
-        params: params.join(','),
-        format: format,
-        lang: lang,
-        mode: mode,
+        "ips": ips,
+        "key": options.key,
+        "params": params.join(','),
+        "format": format,
+        "lang": lang,
+        "mode": mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -270,11 +270,11 @@ export const Country = (options: Options) => {
   }
 
   return new Promise((resolve, reject) => {
-    var countryCode = options.countryCode || '';
-    var params = options.params || [];
-    var format = options.format || 'JSON';
-    var lang = options.lang || 'EN';
-    var mode = options.mode || 'live';
+    let countryCode = options.countryCode || '';
+    const params = options.params || [];
+    const format = options.format || 'JSON';
+    let lang = options.lang || 'EN';
+    const mode = options.mode || 'live';
 
     countryCode = countryCode.toUpperCase();
     lang = lang.toUpperCase();
@@ -338,12 +338,12 @@ export const Country = (options: Options) => {
     makeHttpRquest(
       'Country',
       {
-        CountryCode: countryCode,
-        key: options.key,
-        params: params.join(','),
-        format: format,
-        lang: lang,
-        mode: mode,
+        "CountryCode": countryCode,
+        "key": options.key,
+        "params": params.join(','),
+        "format": format,
+        "lang": lang,
+        "mode": mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -361,11 +361,11 @@ export const BadWord = (options: Options) => {
   }
 
   return new Promise((resolve, reject) => {
-    var text = options.text || '';
-    var params = options.params || [];
-    var format = options.format || 'JSON';
-    var lang = options.lang || 'EN';
-    var mode = options.mode || 'live';
+    const text = options.text || '';
+    const params = options.params || [];
+    const format = options.format || 'JSON';
+    let lang = options.lang || 'EN';
+    const mode = options.mode || 'live';
 
     lang = lang.toUpperCase();
 
@@ -409,12 +409,12 @@ export const BadWord = (options: Options) => {
     makeHttpRquest(
       'badWords',
       {
-        text: text,
-        key: options.key,
-        params: params.join(','),
-        format: format,
-        lang: lang,
-        mode: mode,
+        "text": text,
+        "key": options.key,
+        "params": params.join(','),
+        "format": format,
+        "lang": lang,
+        "mode": mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
