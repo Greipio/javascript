@@ -71,11 +71,11 @@ export const GeoIP = (options: Options) => {
     makeHttpRquest(
       'GeoIP',
       {
-        'key': options.key,
-        'params': params.join(','),
-        'format': format,
-        'lang': lang,
-        'mode': mode,
+        key: options.key,
+        params: params.join(','),
+        format: format,
+        lang: lang,
+        mode: mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -155,12 +155,12 @@ export const Lookup = (options: Options) => {
     makeHttpRquest(
       'IPLookup',
       {
-        'ip': ip,
-        'key': options.key,
-        'params': params.join(','),
-        'format': format,
-        'lang': lang,
-        'mode': mode,
+        ip: ip,
+        key: options.key,
+        params: params.join(','),
+        format: format,
+        lang: lang,
+        mode: mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -247,12 +247,12 @@ export const BulkLookup = (options: Options) => {
     makeHttpRquest(
       'BulkLookup',
       {
-        'ips': ips,
-        'key': options.key,
-        'params': params.join(','),
-        'format': format,
-        'lang': lang,
-        'mode': mode,
+        ips: ips,
+        key: options.key,
+        params: params.join(','),
+        format: format,
+        lang: lang,
+        mode: mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -338,12 +338,12 @@ export const Country = (options: Options) => {
     makeHttpRquest(
       'Country',
       {
-        'CountryCode': countryCode,
-        'key': options.key,
-        'params': params.join(','),
-        'format': format,
-        'lang': lang,
-        'mode': mode,
+        CountryCode: countryCode,
+        key: options.key,
+        params: params.join(','),
+        format: format,
+        lang: lang,
+        mode: mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
@@ -409,12 +409,12 @@ export const BadWord = (options: Options) => {
     makeHttpRquest(
       'badWords',
       {
-        'text': text,
-        'key': options.key,
-        'params': params.join(','),
-        'format': format,
-        'lang': lang,
-        'mode': mode,
+        text: text,
+        key: options.key,
+        params: params.join(','),
+        format: format,
+        lang: lang,
+        mode: mode,
       },
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
