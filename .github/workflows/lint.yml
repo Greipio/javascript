@@ -30,5 +30,3 @@ jobs:
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
-        with:
-          # Enable your linters here
