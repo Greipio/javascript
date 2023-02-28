@@ -1,32 +1,23 @@
-name: Lint
-
-on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
-  # Replace pull_request with pull_request_target if you
-  # plan to use this action with forks, see the Limitations section
-  pull_request:
-    branches:
-      - main
-
-# Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
-permissions:
-  checks: write
-  contents: write
+on: [push]
 
 jobs:
-  run-linters:
-    name: Run linters
+  lint:
     runs-on: ubuntu-latest
-
+    name: Run eslint
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      # Install your linters here
-
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+      - run: npm
+      - run: npm run lint
+  tsc:
+    runs-on: ubuntu-latest
+    name: Check typescript
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+      - run: yarn
+      - run: yarn tsc
