@@ -17,6 +17,4 @@ export interface Options {
   };
 }
 
-export interface PaymentFraudData {
-  action?: string;
-}
+

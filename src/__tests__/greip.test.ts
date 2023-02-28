@@ -146,7 +146,6 @@ test('Payment Fraud Method Test', async () => {
       card_expiry: '29/05',
       cvv_result: true,
     },
-    countryCode: 'US',
   }).then((res: any) => {
     expect(res.status).toEqual('success');
   });
