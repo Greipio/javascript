@@ -9,8 +9,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '13.x'
-      - run: npm
-      - run: npm run lint
+      - run: yarn
+      - run: yarn lint
   tsc:
     runs-on: ubuntu-latest
     name: Check typescript
