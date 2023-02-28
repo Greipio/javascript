@@ -16,5 +16,3 @@ export interface Options {
     [key: string]: string | number | string[] | object | boolean;
   };
 }
-
-
