@@ -4,6 +4,7 @@ import {
   availableFormats,
   availableCountryParams,
   makeHttpRquest,
+  makePostRquest,
 } from './util';
 import { Options } from './types';
 
@@ -28,8 +29,8 @@ export const GeoIP = (options: Options) => {
           reject(
             new Error(
               'The "' +
-                perParam +
-                '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
+              perParam +
+              '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
             ),
           );
         }
@@ -41,8 +42,8 @@ export const GeoIP = (options: Options) => {
       reject(
         new Error(
           'The `format` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
         ),
       );
     }
@@ -52,8 +53,8 @@ export const GeoIP = (options: Options) => {
       reject(
         new Error(
           'The `lang` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
         ),
       );
     }
@@ -63,8 +64,8 @@ export const GeoIP = (options: Options) => {
       reject(
         new Error(
           'The `mode` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/geoip-method#options',
         ),
       );
     }
@@ -112,8 +113,8 @@ export const Lookup = (options: Options) => {
           reject(
             new Error(
               'The "' +
-                perParam +
-                '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+              perParam +
+              '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
             ),
           );
         }
@@ -125,8 +126,8 @@ export const Lookup = (options: Options) => {
       reject(
         new Error(
           'The `format` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
         ),
       );
     }
@@ -136,8 +137,8 @@ export const Lookup = (options: Options) => {
       reject(
         new Error(
           'The `lang` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
         ),
       );
     }
@@ -147,8 +148,8 @@ export const Lookup = (options: Options) => {
       reject(
         new Error(
           'The `mode` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
         ),
       );
     }
@@ -204,8 +205,8 @@ export const BulkLookup = (options: Options) => {
           reject(
             new Error(
               'The "' +
-                perParam +
-                '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+              perParam +
+              '" module you used is unknown.\nYou can use: `location`, `security`, `timezone`, `currency` and/or `device`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
             ),
           );
         }
@@ -217,8 +218,8 @@ export const BulkLookup = (options: Options) => {
       reject(
         new Error(
           'The `format` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
         ),
       );
     }
@@ -228,8 +229,8 @@ export const BulkLookup = (options: Options) => {
       reject(
         new Error(
           'The `lang` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
         ),
       );
     }
@@ -239,8 +240,8 @@ export const BulkLookup = (options: Options) => {
       reject(
         new Error(
           'The `mode` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/lookup-method#options',
         ),
       );
     }
@@ -295,8 +296,8 @@ export const Country = (options: Options) => {
           reject(
             new Error(
               'The "' +
-                perParam +
-                '" module you used is unknown.\nYou can use: `language`, `flag`, `currency` and/or `timezone`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+              perParam +
+              '" module you used is unknown.\nYou can use: `language`, `flag`, `currency` and/or `timezone`.\nRead more at: https://docs.greip.io/options/development-environment',
             ),
           );
         }
@@ -308,8 +309,8 @@ export const Country = (options: Options) => {
       reject(
         new Error(
           'The `format` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `JSON`, `XML`, `CSV` or `Newline`.\nRead more at: https://docs.greip.io/options/development-environment',
         ),
       );
     }
@@ -319,8 +320,8 @@ export const Country = (options: Options) => {
       reject(
         new Error(
           'The `lang` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://docs.greip.io/options/development-environment',
         ),
       );
     }
@@ -330,8 +331,8 @@ export const Country = (options: Options) => {
       reject(
         new Error(
           'The `mode` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
         ),
       );
     }
@@ -379,8 +380,8 @@ export const BadWord = (options: Options) => {
       reject(
         new Error(
           'The `format` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `JSON`, `XML` or `CSV`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `JSON`, `XML` or `CSV`.\nRead more at: https://docs.greip.io/options/development-environment',
         ),
       );
     }
@@ -390,8 +391,8 @@ export const BadWord = (options: Options) => {
       reject(
         new Error(
           'The `lang` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH` or `RU`.\nRead more at: https://docs.greip.io/options/development-environment',
         ),
       );
     }
@@ -401,8 +402,8 @@ export const BadWord = (options: Options) => {
       reject(
         new Error(
           'The `mode` option value "' +
-            lang +
-            '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://geoip-docs.gredev.io/sdks/js/country-method#options',
+          lang +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
         ),
       );
     }
@@ -414,6 +415,172 @@ export const BadWord = (options: Options) => {
         'params': params.join(','),
         'format': format,
         'lang': lang,
+        'mode': mode,
+      },
+      (res: object) => {
+        if (typeof res !== 'object') res = JSON.parse(res);
+        resolve(res);
+      },
+    );
+  });
+};
+
+export const ASN = (options: Options) => {
+  if (typeof options !== 'object') options = {};
+
+  if (!options.key || options.key.length < 1) {
+    throw new Error('You should pass the API Key.');
+  }
+
+  return new Promise((resolve, reject) => {
+    const asn = options.asn || '';
+    const mode = options.mode || 'live';
+
+    // Validate the text variable
+    if (asn.length < 1) {
+      reject(new Error('You should pass the `asn` parameter.'));
+    }
+
+    // Validate the mode variable
+    if (mode !== 'live' && mode !== 'test') {
+      reject(
+        new Error(
+          'The `mode` option value "' +
+          mode +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
+        ),
+      );
+    }
+    makeHttpRquest(
+      'ASNLookup',
+      {
+        'asn': asn,
+        'key': options.key,
+        'mode': mode,
+      },
+      (res: object) => {
+        if (typeof res !== 'object') res = JSON.parse(res);
+        resolve(res);
+      },
+    );
+  });
+};
+
+export const EmailValidation = (options: Options) => {
+  if (typeof options !== 'object') options = {};
+
+  if (!options.key || options.key.length < 1) {
+    throw new Error('You should pass the API Key.');
+  }
+
+  return new Promise((resolve, reject) => {
+    const email = options.email || '';
+    const mode = options.mode || 'live';
+
+    // Validate the text variable
+    if (email.length < 1) {
+      reject(new Error('You should pass the `email` parameter.'));
+    }
+
+    // Validate the mode variable
+    if (mode !== 'live' && mode !== 'test') {
+      reject(
+        new Error(
+          'The `mode` option value "' +
+          mode +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
+        ),
+      );
+    }
+    makeHttpRquest(
+      'validateEmail',
+      {
+        'email': email,
+        'key': options.key,
+        'mode': mode,
+      },
+      (res: object) => {
+        if (typeof res !== 'object') res = JSON.parse(res);
+        resolve(res);
+      },
+    );
+  });
+};
+
+export const PaymentFraud = (options: Options) => {
+  if (typeof options !== 'object') options = {};
+
+  if (!options.key || options.key.length < 1) {
+    throw new Error('You should pass the API Key.');
+  }
+
+  return new Promise((resolve, reject) => {
+    const data = options.data || [];
+    const mode = options.mode || 'live';
+
+    // Validate the text variable
+    if (data.length < 1) {
+      reject(new Error('You should pass the `data` parameter.'));
+    }
+
+    // Validate the mode variable
+    if (mode !== 'live' && mode !== 'test') {
+      reject(
+        new Error(
+          'The `mode` option value "' +
+          mode +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
+        ),
+      );
+    }
+    makePostRquest(
+      'paymentFraud',
+      {
+        'data': data,
+        'key': options.key,
+        'mode': mode,
+      },
+      (res: object) => {
+        if (typeof res !== 'object') res = JSON.parse(res);
+        resolve(res);
+      },
+    );
+  });
+};
+
+export const PhoneValidation = (options: Options) => {
+  if (typeof options !== 'object') options = {};
+
+  if (!options.key || options.key.length < 1) {
+    throw new Error('You should pass the API Key.');
+  }
+
+  return new Promise((resolve, reject) => {
+    const phone = options.phone || '';
+    const countryCode = options.countryCode || '';
+    const mode = options.mode || 'live';
+
+    // Validate the text variable
+    if (phone.length < 1 || countryCode.length < 1) {
+      reject(new Error('You should pass both `phone` and `countryCode` parameters.'));
+    }
+
+    // Validate the mode variable
+    if (mode !== 'live' && mode !== 'test') {
+      reject(
+        new Error(
+          'The `mode` option value "' +
+          mode +
+          '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
+        ),
+      );
+    }
+    makeHttpRquest(
+      'validatePhone',
+      {
+        'phone': phone,
+        'countryCode': countryCode,
+        'key': options.key,
         'mode': mode,
       },
       (res: object) => {

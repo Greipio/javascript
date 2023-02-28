@@ -9,4 +9,14 @@ export interface Options {
   mode?: string;
   countryCode?: string;
   text?: string;
+  asn?: string;
+  email?: string;
+  phone?: string;
+  data?: {
+    [key: string]: string | number | string[] | object | boolean;
+  };
+}
+
+export interface PaymentFraudData {
+  action?: string;
 }

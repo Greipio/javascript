@@ -32,3 +32,20 @@ export const makeHttpRquest = (endpoint: string, options: any, callback: (data: 
       throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
     });
 };
+
+export const makePostRquest = (endpoint: string, options: any, callback: (data: object) => void) => {
+  options.source = 'JS-Package';
+
+  axios
+    .post(baseURL + '/' + endpoint, options)
+    .then((response) => {
+      if (response.status === 200) {
+        callback(response.data);
+      } else {
+        throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+      }
+    })
+    .catch((error) => {
+      throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+    });
+};
