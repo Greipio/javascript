@@ -8,6 +8,7 @@ import {
   EmailValidation,
   PhoneValidation,
   PaymentFraud,
+  IBANValidation,
 } from '../index';
 
 test('GeoIP Method Test', async () => {
@@ -146,6 +147,15 @@ test('Payment Fraud Method Test', async () => {
       card_expiry: '29/05',
       cvv_result: true,
     },
+  }).then((res: any) => {
+    expect(res.status).toEqual('success');
+  });
+});
+
+test('IBAN Validation Method Test', async () => {
+  await IBANValidation({
+    key: '0540759999851b6b25e98cbfae03c94e',
+    iban: 'BY86AKBB10100000002966000000',
   }).then((res: any) => {
     expect(res.status).toEqual('success');
   });

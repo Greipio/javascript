@@ -519,12 +519,8 @@ export const PaymentFraud = (options: Options) => {
     const mode1 = options.mode || 'live';
 
     // Validate the text variable
-    if (typeof data1 === 'string' || Array.isArray(data1)) {
-      if (data1.length < 1) {
-        reject(new Error('You should pass the `data` parameter.'));
-      }
-    } else {
-      reject(new Error('The `data` parameter should be an array.'));
+    if (typeof data1 !== 'object' || Array.isArray(data1)) {
+      reject(new Error('You should pass the `data` parameter.'));
     }
 
     // Validate the mode variable
