@@ -12,6 +12,7 @@ export interface Options {
   asn?: string;
   email?: string;
   phone?: string;
+  iban?: string;
   data?: {
     [key: string]: string | number | string[] | object | boolean;
   };

@@ -2,3 +2,5 @@ node_modules
 example
 tests
 lib
+.github
+.vscode

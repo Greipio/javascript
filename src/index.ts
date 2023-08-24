@@ -519,8 +519,12 @@ export const PaymentFraud = (options: Options) => {
     const mode1 = options.mode || 'live';
 
     // Validate the text variable
-    if (data1.length < 1) {
-      reject(new Error('You should pass the `data` parameter.'));
+    if (typeof data1 === 'string' || Array.isArray(data1)) {
+      if (data1.length < 1) {
+        reject(new Error('You should pass the `data` parameter.'));
+      }
+    } else {
+      reject(new Error('The `data` parameter should be an array.'));
     }
 
     // Validate the mode variable
@@ -580,6 +584,47 @@ export const PhoneValidation = (options: Options) => {
       {
         phone: phone1,
         countryCode: countryCode1,
+        key: options.key,
+        mode: mode1,
+      },
+      (res: object) => {
+        if (typeof res !== 'object') res = JSON.parse(res);
+        resolve(res);
+      },
+    );
+  });
+};
+
+export const IBANValidation = (options: Options) => {
+  if (typeof options !== 'object') options = {};
+
+  if (!options.key || options.key.length < 1) {
+    throw new Error('You should pass the API Key.');
+  }
+
+  return new Promise((resolve, reject) => {
+    const iban1 = options.iban || '';
+    const mode1 = options.mode || 'live';
+
+    // Validate the text variable
+    if (iban1.length < 1) {
+      reject(new Error('You should pass the `iban` parameter.'));
+    }
+
+    // Validate the mode variable
+    if (mode1 !== 'live' && mode1 !== 'test') {
+      reject(
+        new Error(
+          'The `mode` option value "' +
+            mode1 +
+            '" you specified is unknown.\nYou can use: `live` or `test`.\nRead more at: https://docs.greip.io/options/development-environment',
+        ),
+      );
+    }
+    makeHttpRquest(
+      'validateIBAN',
+      {
+        iban: iban1,
         key: options.key,
         mode: mode1,
       },
