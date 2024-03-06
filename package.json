@@ -1,7 +1,7 @@
 {
   "name": "greip.js",
   "version": "2.3.1",
-  "description": "The official JS library of Greip.",
+  "description": "The official Javascript library of Greip.",
   "author": {
     "name": "Greip",
     "email": "info@greip.io",
@@ -24,9 +24,9 @@
   "files": [
     "lib/**/*"
   ],
-  "homepage": "https://github.com/Greipio/Greip-JS#readme",
+  "homepage": "https://github.com/Greipio/javascript#readme",
   "bugs": {
-    "url": "https://github.com/Greipio/Greip-JS/issues",
+    "url": "https://github.com/Greipio/javascript/issues",
     "email": "info@greip.io"
   },
   "funding": {
@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Greipio/Greip-JS.git"
+    "url": "https://github.com/Greipio/javascript.git"
   },
   "dependencies": {
     "axios": "^0.25.0"

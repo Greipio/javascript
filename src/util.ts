@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Options } from './types';
 
 export const baseURL = 'https://gregeoip.com/';
 export const availableGeoIPParams = ['location', 'security', 'timezone', 'currency', 'device'];

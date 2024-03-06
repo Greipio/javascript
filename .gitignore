@@ -4,3 +4,4 @@ tests
 lib
 .github
 .vscode
+.DS_Store

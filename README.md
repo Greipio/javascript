@@ -1,39 +1,29 @@
-<div align="center">
-    <h1>Greip Javascript Library</h1>
-    <p>The official JS library of Greip API</p>
-    <br />
-    <a href="https://github.com/Greipio/Greip-JS/issues/new">Report Issue</a> · 
-    <a href="https://github.com/Greipio/Greip-JS/discussions/new">Request Feature</a> · 
-    <a href="https://greip.io" target="_BLANK">Home Page</a> · 
-    <a href="https://docs.greip.io/tools-and-libraries/js" target="_BLANK">API Docs</a>
-    <br />
-    <br />
-    <a href="https://www.npmjs.com/package/greip.js" title="NPM Package" href="_BLANK"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"></a>
-    <a href="https://github.com/Greipio/Greip-JS" title="Github Repo" href="_BLANK"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>
-    <a href="https://www.patreon.com/gredev" title="Patreon Profile - GRE Development Ltd." href="_BLANK"><img src="https://img.shields.io/badge/Patreon-ff424e?style=for-the-badge&logo=patreon&logoColor=white"></a>
-    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" title="Javascript">
-</div>
-<br />
+# Greip Javascript Package
 
----
+The official Javascript package of Greip API
 
-<br />
+[Report Issue](https://github.com/Greipio/javascript/issues/new)
+·
+[Request Feature](https://github.com/Greipio/javascript/discussions/new)
+·
+[Greip Website](https://greip.io/)
+·
+[Documentation](https://docs.greip.io/)
+
+[![NPM Package of Greip](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/greip.js)
+[![Github Repository](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Greipio/javascript)
 
 [![npm version](https://badge.fury.io/js/greip.js.svg)](https://badge.fury.io/js/greip.js)
 &nbsp;&nbsp;
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gre-dev/Greip-JS?color=green&label=Minified%20size&logo=github)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gre-dev/javascript?color=green&label=Minified%20size&logo=github)
 &nbsp;&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 &nbsp;&nbsp;
 ![API Status](https://img.shields.io/website?down_color=orange&down_message=down&label=API%20status&up_color=green&up_message=up&url=https%3A%2F%2Fgregeoip.com)
-<br /><br />
 
-# Requirements
+---
 
-No requirements for using this package.
-<br /><br />
-
-# Installation
+## Installation
 
 For Node.js, React.js & React Native:
 
@@ -47,14 +37,11 @@ or
 yarn add greip.js
 ```
 
-<br /><br />
-
-# Usage
+## Usage
 
 Here's how you use the API Methods:
-<br /><br />
 
-## 1. IP Geolocation Method
+### 1. IP Geolocation Method
 
 ```javascript
 import { GeoIP } from 'greip.js';
@@ -70,9 +57,7 @@ await GeoIP({
   });
 ```
 
-<br />
-
-## 2. IP Lookup Method
+### 2. IP Lookup Method
 
 ```javascript
 import { Lookup } from 'greip.js';
@@ -89,9 +74,7 @@ await Lookup({
   });
 ```
 
-<br />
-
-## 3. Bulk IP Lookup Method
+### 3. Bulk IP Lookup Method
 
 ```javascript
 import { BulkLookup } from 'greip.js';
@@ -108,9 +91,7 @@ await BulkLookup({
   });
 ```
 
-<br />
-
-## 4. ASN Lookup Method
+### 4. ASN Lookup Method
 
 ```javascript
 import { ASN } from 'greip.js';
@@ -127,9 +108,7 @@ await ASN({
   });
 ```
 
-<br />
-
-## 5. Profanity Detection Method
+### 5. Profanity Detection Method
 
 ```javascript
 import { BadWord } from 'greip.js';
@@ -146,9 +125,7 @@ await BadWord({
   });
 ```
 
-<br />
-
-## 6. Country Lookup Method
+### 6. Country Lookup Method
 
 ```javascript
 import { Country } from 'greip.js';
@@ -165,9 +142,7 @@ await Country({
   });
 ```
 
-<br />
-
-## 7. Email Validation Method
+### 7. Email Validation Method
 
 ```javascript
 import { EmailValidation } from 'greip.js';
@@ -184,9 +159,7 @@ await EmailValidation({
   });
 ```
 
-<br />
-
-## 8. Phone Validation Method
+### 8. Phone Validation Method
 
 ```javascript
 import { PhoneValidation } from 'greip.js';
@@ -204,9 +177,7 @@ await PhoneValidation({
   });
 ```
 
-<br />
-
-## 9. Payment Fraud Prevention Method
+### 9. Payment Fraud Prevention Method
 
 ```javascript
 import { PaymentFraud } from 'greip.js';
@@ -283,9 +254,7 @@ await PaymentFraud({
   });
 ```
 
-<br>
-
-## 10. IBAN Validation Method
+### 10. IBAN Validation Method
 
 ```javascript
 await IBANValidation({
@@ -300,17 +269,15 @@ await IBANValidation({
   });
 ```
 
-<br /><br />
-
-# Options, Methods and More
+## Options, Methods and More
 
 You can find the full guide of this package by visiting our [Documentation Page](https://docs.greip.io/).
 
-# Credits
+## Credits
 
 - [Greip Developers](https://greip.io)
-- [All Contributors](https://github.com/Greipio/Greip-JS/graphs/contributors)
+- [All Contributors](https://github.com/Greipio/javascript/graphs/contributors)
 
-# License
+## License
 
-The MIT License (MIT). Please see [License](https://github.com/Greipio/Greip-JS/blob/main/LICENSE) File for more information.
+The MIT License (MIT). Please see [License](https://github.com/Greipio/javascript/blob/main/LICENSE) File for more information.

@@ -3,3 +3,4 @@ example
 tests
 gre-gelip.js
 gre-geoip.min.js
+.DS_Store
