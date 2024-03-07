@@ -277,7 +277,3 @@ You can find the full guide of this package by visiting our [Documentation Page]
 
 - [Greip Developers](https://greip.io)
 - [All Contributors](https://github.com/Greipio/javascript/graphs/contributors)
-
-## License
-
-The MIT License (MIT). Please see [License](https://github.com/Greipio/javascript/blob/main/LICENSE) File for more information.

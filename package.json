@@ -1,13 +1,13 @@
 {
   "name": "greip.js",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "The official Javascript library of Greip.",
   "author": {
     "name": "Greip",
     "email": "info@greip.io",
     "url": "https://greip.io"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "lib/index.d.ts",
   "types": "lib/index.d.ts",
   "keywords": [
