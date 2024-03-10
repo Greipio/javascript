@@ -24,11 +24,11 @@ export const makeHttpRquest = (endpoint: string, options: any, callback: (data: 
       if (response.status === 200) {
         callback(response.data);
       } else {
-        throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+        throw new Error('An unknown error occurred while sending the request to Greip API.');
       }
     })
     .catch((error) => {
-      throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+      throw new Error('An unknown error occurred while sending the request to Greip API.');
     });
 };
 
@@ -41,10 +41,10 @@ export const makePostRquest = (endpoint: string, options: any, callback: (data: 
       if (response.status === 200) {
         callback(response.data);
       } else {
-        throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+        throw new Error('An unknown error occurred while sending the request to Greip API.');
       }
     })
     .catch((error) => {
-      throw new Error('An unknown error occurred while sending the request to GRE GeoIP API.');
+      throw new Error('An unknown error occurred while sending the request to Greip API.');
     });
 };

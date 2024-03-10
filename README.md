@@ -12,6 +12,7 @@ The official Javascript package of Greip API
 
 [![NPM Package of Greip](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/greip.js)
 [![Github Repository](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Greipio/javascript)
+[![jsDelivery CDN Link](https://img.shields.io/badge/jsDelivr-E84D3D?style=for-the-badge&logo=jsDelivr&logoColor=white)](https://cdn.jsdelivr.net/gh/Greipio/javascript/greip.bundle.js)
 
 [![npm version](https://badge.fury.io/js/greip.js.svg)](https://badge.fury.io/js/greip.js)
 &nbsp;&nbsp;
@@ -25,7 +26,7 @@ The official Javascript package of Greip API
 
 ## Installation
 
-For Node.js, React.js & React Native:
+### 1. For React.js, React Native, etc:
 
 ```
 npm i greip.js --save
@@ -37,15 +38,61 @@ or
 yarn add greip.js
 ```
 
+### 2. For CDN Integration
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/Greipio/javascript/greip.bundle.js" type="text/javascript" />
+```
+
+### 3. For Node.js
+
+Please use our [Node.js library](https://github.com/Greipio/node) instead.
+
+## Initializing the Greip object
+
+There're two different ways to initialize the Greip object, let's dive into this:
+
+### 1. For React.js, React Native, etc:
+
+```javascript
+import {
+  Lookup,
+  GeoIP,
+  BulkLookup,
+  ASN,
+  BadWord,
+  Country,
+  EmailValidation,
+  PhoneValidation,
+  PaymentFraud,
+  IBANValidation,
+} from 'greip.js';
+```
+
+### 2. CDN Integration
+
+In CDN integration, you already have `Greip` as a global variable initialized automatically when the page loads.
+
+You can start using it directly as follows:
+
+```javascript
+Greip.GeoIP({
+  key: 'your-api-key',
+  // other options here
+}).then((response) => {
+  console.log(response);
+});
+```
+
 ## Usage
 
 Here's how you use the API Methods:
 
 ### 1. IP Geolocation Method
 
-```javascript
-import { GeoIP } from 'greip.js';
+Use this method to retrieve the IP address of the visitor/user with its full information.
 
+```javascript
 await GeoIP({
   key: 'your-api-key',
 })
@@ -59,9 +106,9 @@ await GeoIP({
 
 ### 2. IP Lookup Method
 
-```javascript
-import { Lookup } from 'greip.js';
+Use this method to retrieve the information of a given IP address.
 
+```javascript
 await Lookup({
   key: 'your-api-key',
   ip: '1.1.1.1',
@@ -76,9 +123,9 @@ await Lookup({
 
 ### 3. Bulk IP Lookup Method
 
-```javascript
-import { BulkLookup } from 'greip.js';
+You can use this method to retrieve the information of multiple IP addresses (no need to use the `Lookup` method inside a loop).
 
+```javascript
 await BulkLookup({
   key: 'your-api-key',
   ips: ['1.1.1.1', '2.2.2.2'],
@@ -93,9 +140,9 @@ await BulkLookup({
 
 ### 4. ASN Lookup Method
 
-```javascript
-import { ASN } from 'greip.js';
+In this method, Greip will help you lookup any given AS Number and returning all data related to it, like: name, org (the organization name), country, domain, email, phone, totalIPs, list of all routes (v4 & v6) related the given AS Number, etc.
 
+```javascript
 await ASN({
   key: 'your-api-key',
   asn: 'AS01',
@@ -110,9 +157,9 @@ await ASN({
 
 ### 5. Profanity Detection Method
 
-```javascript
-import { BadWord } from 'greip.js';
+This method can be used to detect abuse of your website/app. It’s a great way to know more about your user inputs and whether they contain profanity (bad words) or not before releasing them to the public.
 
+```javascript
 await BadWord({
   key: 'your-api-key',
   text: 'This is just normal sample text.',
@@ -127,9 +174,9 @@ await BadWord({
 
 ### 6. Country Lookup Method
 
-```javascript
-import { Country } from 'greip.js';
+This method can help you retrieve information of the given country.
 
+```javascript
 await Country({
   key: 'your-api-key',
   countryCode: 'SA',
@@ -144,9 +191,11 @@ await Country({
 
 ### 7. Email Validation Method
 
-```javascript
-import { EmailValidation } from 'greip.js';
+This method provides an additional layer of validation for your system. While validating email syntax is important, it is not sufficient.
 
+This method goes beyond syntax validation by checking the domain’s validity, the availability of the Mail Service, detecting Disposable Email (Temporary Emails), etc. By utilising this method, you can ensure a more thorough validation process for email addresses.
+
+```javascript
 await EmailValidation({
   key: 'your-api-key',
   email: 'name@domain.com',
@@ -161,9 +210,9 @@ await EmailValidation({
 
 ### 8. Phone Validation Method
 
-```javascript
-import { PhoneValidation } from 'greip.js';
+This method can be used as an extra-layer of your system for validating phone numbers. It validates phone number syntax and valid-possibility.
 
+```javascript
 await PhoneValidation({
   key: 'your-api-key',
   phone: '123123123',
@@ -179,9 +228,9 @@ await PhoneValidation({
 
 ### 9. Payment Fraud Prevention Method
 
-```javascript
-import { PaymentFraud } from 'greip.js';
+Prevent financial losses by deploying AI-Powered modules.
 
+```javascript
 await PaymentFraud({
   key: 'your-api-key',
   data: {
@@ -256,6 +305,8 @@ await PaymentFraud({
 
 ### 10. IBAN Validation Method
 
+This method allows you to validate International Bank Account Numbers (IBANs) and retrieve additional information about the country associated with the IBAN.
+
 ```javascript
 await IBANValidation({
   key: 'your-api-key',
@@ -271,7 +322,7 @@ await IBANValidation({
 
 ## Options, Methods and More
 
-You can find the full guide of this package by visiting our [Documentation Page](https://docs.greip.io/).
+You can find the full guide of this package by visiting our [documentation page](https://docs.greip.io/).
 
 ## Credits
 
