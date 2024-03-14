@@ -57,6 +57,7 @@ There're two different ways to initialize the Greip object, let's dive into this
 ```javascript
 import {
   Lookup,
+  Threats,
   GeoIP,
   BulkLookup,
   ASN,
