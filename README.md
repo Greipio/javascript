@@ -20,7 +20,7 @@ The official Javascript package of Greip API
 &nbsp;&nbsp;
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/license/apache-2-0)
 &nbsp;&nbsp;
-![API Status](https://img.shields.io/website?down_color=orange&down_message=down&label=API%20status&up_color=green&up_message=up&url=https%3A%2F%2Fgregeoip.com)
+![API Status](https://img.shields.io/website?down_color=orange&down_message=down&label=API%20status&up_color=green&up_message=up&url=https%3A%2F%greipapi.com)
 
 ---
 
@@ -104,7 +104,24 @@ await GeoIP({
   });
 ```
 
-### 2. IP Lookup Method
+### 2. IP Threats Method
+
+Use this method to retrieve threat intelligence information associated with a given IP address.
+
+```javascript
+await Threats({
+  key: 'your-api-key',
+  ip: '1.1.1.1',
+})
+  .then((res: any) => {
+    console.log(res.data); // Log Response
+  })
+  .catch((error: any) => {
+    console.log(error);
+  });
+```
+
+### 3. IP Lookup Method
 
 Use this method to retrieve the information of a given IP address.
 
@@ -121,7 +138,7 @@ await Lookup({
   });
 ```
 
-### 3. Bulk IP Lookup Method
+### 4. Bulk IP Lookup Method
 
 You can use this method to retrieve the information of multiple IP addresses (no need to use the `Lookup` method inside a loop).
 
@@ -138,7 +155,7 @@ await BulkLookup({
   });
 ```
 
-### 4. ASN Lookup Method
+### 5. ASN Lookup Method
 
 In this method, Greip will help you lookup any given AS Number and returning all data related to it, like: name, org (the organization name), country, domain, email, phone, totalIPs, list of all routes (v4 & v6) related the given AS Number, etc.
 
@@ -155,7 +172,7 @@ await ASN({
   });
 ```
 
-### 5. Profanity Detection Method
+### 6. Profanity Detection Method
 
 This method can be used to detect abuse of your website/app. It’s a great way to know more about your user inputs and whether they contain profanity (bad words) or not before releasing them to the public.
 
@@ -172,7 +189,7 @@ await BadWord({
   });
 ```
 
-### 6. Country Lookup Method
+### 7. Country Lookup Method
 
 This method can help you retrieve information of the given country.
 
@@ -189,7 +206,7 @@ await Country({
   });
 ```
 
-### 7. Email Validation Method
+### 8. Email Validation Method
 
 This method provides an additional layer of validation for your system. While validating email syntax is important, it is not sufficient.
 
@@ -208,7 +225,7 @@ await EmailValidation({
   });
 ```
 
-### 8. Phone Validation Method
+### 9. Phone Validation Method
 
 This method can be used as an extra-layer of your system for validating phone numbers. It validates phone number syntax and valid-possibility.
 
@@ -226,7 +243,7 @@ await PhoneValidation({
   });
 ```
 
-### 9. Payment Fraud Prevention Method
+### 10. Payment Fraud Prevention Method
 
 Prevent financial losses by deploying AI-Powered modules.
 
@@ -303,7 +320,7 @@ await PaymentFraud({
   });
 ```
 
-### 10. IBAN Validation Method
+### 11. IBAN Validation Method
 
 This method allows you to validate International Bank Account Numbers (IBANs) and retrieve additional information about the country associated with the IBAN.
 

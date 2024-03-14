@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseURL = 'https://gregeoip.com/';
+export const baseURL = 'https://greipapi.com/';
 export const availableGeoIPParams = ['location', 'security', 'timezone', 'currency', 'device'];
 export const availableLanguages = ['EN', 'AR', 'DE', 'FR', 'ES', 'JA', 'ZH', 'RU'];
 export const availableFormats = ['JSON', 'XML', 'CSV', 'Newline'];
