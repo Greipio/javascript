@@ -41,7 +41,7 @@ yarn add greip.js
 ### 2. For CDN Integration
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Greipio/javascript/greip.bundle.js" type="text/javascript" />
+<script src="https://cdn.jsdelivr.net/gh/Greipio/javascript/greip.bundle.js" type="text/javascript"></script>
 ```
 
 ### 3. For Node.js
