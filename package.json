@@ -1,6 +1,6 @@
 {
   "name": "greip.js",
-  "version": "2.4.2",
+  "version": "2.4.6",
   "description": "The official Javascript library of Greip.",
   "author": {
     "name": "Greip",
@@ -8,7 +8,7 @@
     "url": "https://greip.io"
   },
   "license": "Apache-2.0",
-  "main": "lib/index.d.ts",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "keywords": [
     "ip",
