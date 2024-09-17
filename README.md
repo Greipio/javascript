@@ -346,3 +346,7 @@ You can find the full guide of this package by visiting our [documentation page]
 
 - [Greip Developers](https://greip.io)
 - [All Contributors](https://github.com/Greipio/javascript/graphs/contributors)
+
+## Repo Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/db51cf11f87d8fdca78afb81e7711761affa247f.svg "Repobeats analytics image")
