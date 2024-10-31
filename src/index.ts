@@ -23,7 +23,7 @@ export const GeoIP = (options: Options) => {
     const mode1 = options.mode || 'live';
     lang1 = lang1.toUpperCase();
 
-    //? Fingerprint data
+    //? GFP data
     const gfp_data = getGFP();
 
     // Validate the params variable items
