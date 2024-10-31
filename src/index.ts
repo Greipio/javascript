@@ -5,6 +5,7 @@ import {
   availableCountryParams,
   makeHttpRquest,
   makePostRquest,
+  getGFP,
 } from './util';
 import { Options } from './types';
 
@@ -21,6 +22,9 @@ export const GeoIP = (options: Options) => {
     let lang1 = options.lang || 'EN';
     const mode1 = options.mode || 'live';
     lang1 = lang1.toUpperCase();
+
+    //? Fingerprint data
+    const gfp_data = getGFP();
 
     // Validate the params variable items
     params.forEach((perParam) => {
@@ -70,7 +74,7 @@ export const GeoIP = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'GeoIP',
+      '/geoip',
       {
         key: options.key,
         params: params.join(','),
@@ -81,6 +85,9 @@ export const GeoIP = (options: Options) => {
       (res: object) => {
         if (typeof res !== 'object') res = JSON.parse(res);
         resolve(res);
+      },
+      {
+        gfp: gfp_data,
       },
     );
   });
@@ -154,7 +161,7 @@ export const Lookup = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'IPLookup',
+      '/lookup/ip',
       {
         ip: ip1,
         key: options.key,
@@ -210,7 +217,7 @@ export const Threats = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'threats',
+      '/lookup/ip/threats',
       {
         ip: ip1,
         key: options.key,
@@ -300,7 +307,7 @@ export const BulkLookup = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'BulkLookup',
+      '/lookup/ip/bulk',
       {
         ips: ips1,
         key: options.key,
@@ -391,7 +398,7 @@ export const Country = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'Country',
+      '/lookup/country',
       {
         CountryCode: countryCode,
         key: options.key,
@@ -462,7 +469,7 @@ export const BadWord = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'badWords',
+      '/scoring/profanity',
       {
         text: text1,
         key: options.key,
@@ -506,7 +513,7 @@ export const ASN = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'ASNLookup',
+      '/lookup/asn',
       {
         asn: asn1,
         key: options.key,
@@ -547,7 +554,7 @@ export const EmailValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'validateEmail',
+      '/scoring/email',
       {
         email: email1,
         key: options.key,
@@ -630,7 +637,7 @@ export const PhoneValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'validatePhone',
+      '/scoring/payment',
       {
         phone: phone1,
         countryCode: countryCode1,
@@ -672,7 +679,7 @@ export const IBANValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      'validateIBAN',
+      '/lookup/iban',
       {
         iban: iban1,
         key: options.key,
