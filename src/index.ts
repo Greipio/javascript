@@ -24,7 +24,7 @@ export const GeoIP = (options: Options) => {
     lang1 = lang1.toUpperCase();
 
     // GFP data
-    const gfp_data = getGFP();
+    const gfpData = getGFP();
 
     // Validate the params variable items
     params.forEach((perParam) => {
@@ -87,7 +87,7 @@ export const GeoIP = (options: Options) => {
         resolve(res);
       },
       {
-        gfp: gfp_data,
+        gfp: gfpData,
       },
     );
   });

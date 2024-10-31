@@ -61,18 +61,16 @@ export const getGFP = () => {
     const plugins =
       typeof navigator.plugins !== 'undefined' ? Array.from(navigator.plugins).map((plugin) => plugin.name) : null;
 
-    let gfpData = {
+    const gfpData = JSON.stringify({
       timezone,
       primary_language: primaryLanguage,
       preferred_languages: preferredLanguages,
       screen_width: screenWidth,
       screen_height: screenHeight,
       plugins,
-    };
+    });
 
-    const gfp_data = JSON.stringify(gfpData);
-
-    return gfp_data;
+    return gfpData;
   } catch (error) {
     return null;
   }
