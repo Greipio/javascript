@@ -54,19 +54,19 @@ export const makePostRquest = (endpoint: string, options: any, callback: (data: 
 export const getGFP = () => {
   try {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const primary_language = navigator.language;
-    const preferred_languages = navigator.languages;
-    const screen_width = window.screen.width;
-    const screen_height = window.screen.height;
+    const primaryLanguage = navigator.language;
+    const preferredLanguages = navigator.languages;
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
     const plugins =
       typeof navigator.plugins !== 'undefined' ? Array.from(navigator.plugins).map((plugin) => plugin.name) : null;
 
     let gfpData = {
       timezone,
-      primary_language,
-      preferred_languages,
-      screen_width,
-      screen_height,
+      primary_language: primaryLanguage,
+      preferred_languages: preferredLanguages,
+      screen_width: screenWidth,
+      screen_height: screenHeight,
       plugins,
     };
 

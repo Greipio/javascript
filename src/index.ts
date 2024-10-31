@@ -23,7 +23,7 @@ export const GeoIP = (options: Options) => {
     const mode1 = options.mode || 'live';
     lang1 = lang1.toUpperCase();
 
-    //? GFP data
+    // GFP data
     const gfp_data = getGFP();
 
     // Validate the params variable items
@@ -637,7 +637,7 @@ export const PhoneValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/scoring/payment',
+      '/scoring/phone',
       {
         phone: phone1,
         countryCode: countryCode1,
