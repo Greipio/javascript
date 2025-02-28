@@ -75,3 +75,80 @@ export const getGFP = () => {
     return null;
   }
 };
+
+const performanceTiming = () => {
+  const start = performance.now();
+  for (let i = 0; i < 1000000; i++) {}
+  const end = performance.now();
+  return end - start > 10; // Adjust threshold based on testing
+};
+
+const IndexedDBAvailability = (): Promise<boolean> => {
+  return new Promise<boolean>((resolve) => {
+    const dbName = 'incognitoTestDB';
+    const request = indexedDB.open(dbName);
+
+    request.onsuccess = () => {
+      indexedDB.deleteDatabase(dbName);
+      resolve(false); // Not in Incognito mode
+    };
+
+    request.onerror = () => {
+      resolve(true); // Likely in Incognito mode
+    };
+  });
+};
+
+const LSSSCheck = () => {
+  try {
+    const testKey = 'greipIncognitoTest';
+    window.localStorage.setItem(testKey, 'test');
+    window.localStorage.removeItem(testKey);
+    return false; // Not in Incognito mode
+  } catch (e) {
+    return true; // Likely in Incognito mode
+  }
+};
+
+const FileSystemAPIQuotaCheck = async () => {
+  try {
+    const storage = await navigator.storage.estimate();
+    return !storage.quota || storage.quota < 120000000; // Incognito mode often has a very small quota
+  } catch (e) {
+    return false;
+  }
+};
+
+const ServiceWorkerCheck = () => {
+  return !('serviceWorker' in navigator);
+};
+
+export const detectIncognito = async (callback: (is_incognito: boolean) => void) => {
+  if (performanceTiming()) {
+    callback(true);
+    return true;
+  }
+
+  await IndexedDBAvailability().then((is_incognito: boolean) => {
+    callback(is_incognito);
+    return is_incognito;
+  });
+
+  if (LSSSCheck()) {
+    callback(true);
+    return true;
+  }
+
+  if (await FileSystemAPIQuotaCheck()) {
+    callback(true);
+    return true;
+  }
+
+  if (ServiceWorkerCheck()) {
+    callback(true);
+    return true;
+  }
+
+  callback(false);
+  return false;
+};

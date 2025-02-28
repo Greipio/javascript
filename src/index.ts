@@ -6,6 +6,7 @@ import {
   makeHttpRquest,
   makePostRquest,
   getGFP,
+  detectIncognito,
 } from './util';
 import { Options } from './types';
 
@@ -690,5 +691,13 @@ export const IBANValidation = (options: Options) => {
         resolve(res);
       },
     );
+  });
+};
+
+export const IncognitoDetection = (options: Options) => {
+  return new Promise(async (resolve, reject) => {
+    await detectIncognito((is_incognito: boolean) => {
+      resolve(is_incognito === true);
+    });
   });
 };
