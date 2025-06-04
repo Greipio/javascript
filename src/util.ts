@@ -18,10 +18,11 @@ export const serialize = (obj: any) => {
 export const makeHttpRquest = (endpoint: string, options: any, callback: (data: object) => void, headers?: any) => {
   options.source = 'JS-Package';
 
+  // Only include headers if provided and not empty, to avoid triggering CORS preflight (OPTIONS) requests
+  const axiosConfig = headers && Object.keys(headers).length > 0 ? { headers } : undefined;
+
   axios
-    .get(baseURL + endpoint + '?' + serialize(options), {
-      headers,
-    })
+    .get(baseURL + endpoint + '?' + serialize(options), axiosConfig)
     .then((response) => {
       if (response.status === 200) {
         callback(response.data);

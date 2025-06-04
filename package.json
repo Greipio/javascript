@@ -1,6 +1,6 @@
 {
   "name": "greip.js",
-  "version": "2.4.8",
+  "version": "2.4.9",
   "description": "The official Javascript library of Greip.",
   "author": {
     "name": "Greip",
@@ -49,7 +49,7 @@
     "url": "https://github.com/Greipio/javascript.git"
   },
   "dependencies": {
-    "axios": "^1.6.7"
+    "axios": "^1.9.0"
   },
   "devDependencies": {
     "@types/jest": "^29.2.4",

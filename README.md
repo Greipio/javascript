@@ -26,33 +26,37 @@ The official Javascript package of Greip API
 
 ## Installation
 
-### 1. For React.js, React Native, etc:
+You can install the Greip JavaScript package using npm, yarn, or via CDN.
 
-```
-npm i greip.js --save
+### Using npm
+
+```bash
+npm install greip.js --save
 ```
 
-or
+### Using yarn
 
-```
+```bash
 yarn add greip.js
 ```
 
-### 2. For CDN Integration
+### CDN Integration
+
+Add the following script tag to your HTML file:
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Greipio/javascript/greip.bundle.js" type="text/javascript"></script>
 ```
 
-### 3. For Node.js
+> **Note:** For Node.js environments, please use our [Node.js library](https://github.com/Greipio/node).
 
-Please use our [Node.js library](https://github.com/Greipio/node) instead.
+---
 
-## Initializing the Greip object
+## Getting Started
 
-There're two different ways to initialize the Greip object, let's dive into this:
+### Importing Greip Methods
 
-### 1. For React.js, React Native, etc:
+#### For React.js, React Native, etc.
 
 ```javascript
 import {
@@ -70,165 +74,178 @@ import {
 } from 'greip.js';
 ```
 
-### 2. CDN Integration
+#### For CDN Integration
 
-In CDN integration, you already have `Greip` as a global variable initialized automatically when the page loads.
-
-You can start using it directly as follows:
+The `Greip` object is available globally. You can use its methods directly:
 
 ```javascript
 Greip.GeoIP({
   key: 'your-api-key',
-  // other options here
+  // other options
 }).then((response) => {
   console.log(response);
 });
 ```
 
-## Usage
+---
 
-Here's how you use the API Methods:
+## Usage Examples
 
-### 1. IP Geolocation Method
+Below are examples for each available method. All methods return Promises.
 
-Use this method to retrieve the IP address of the visitor/user with its full information.
+### 1. IP Geolocation
 
-```javascript
-await GeoIP({
-  key: 'your-api-key',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
-```
+**Options:**
 
-### 2. IP Threats Method
-
-Use this method to retrieve threat intelligence information associated with a given IP address.
+| Option | Type     | Required | Description                                                       |
+| ------ | -------- | -------- | ----------------------------------------------------------------- |
+| key    | string   | Yes      | Your API key                                                      |
+| params | string[] | No       | Modules: `location`, `security`, `timezone`, `currency`, `device` |
+| format | string   | No       | Response format: `JSON`, `XML`, `CSV`, `Newline`                  |
+| lang   | string   | No       | Language: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, `RU`          |
+| mode   | string   | No       | `live` (default) or `test`                                        |
 
 ```javascript
-await Threats({
-  key: 'your-api-key',
-  ip: '1.1.1.1',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await GeoIP({ key: 'your-api-key' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 3. IP Lookup Method
+### 2. IP Threats
 
-Use this method to retrieve the information of a given IP address.
+**Options:**
+
+| Option | Type   | Required | Description                                      |
+| ------ | ------ | -------- | ------------------------------------------------ |
+| key    | string | Yes      | Your API key                                     |
+| ip     | string | Yes      | IP address to check                              |
+| format | string | No       | Response format: `JSON`, `XML`, `CSV`, `Newline` |
+| mode   | string | No       | `live` (default) or `test`                       |
 
 ```javascript
-await Lookup({
-  key: 'your-api-key',
-  ip: '1.1.1.1',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await Threats({ key: 'your-api-key', ip: '1.1.1.1' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 4. Bulk IP Lookup Method
+### 3. IP Lookup
 
-You can use this method to retrieve the information of multiple IP addresses (no need to use the `Lookup` method inside a loop).
+**Options:**
+
+| Option | Type     | Required | Description                                                       |
+| ------ | -------- | -------- | ----------------------------------------------------------------- |
+| key    | string   | Yes      | Your API key                                                      |
+| ip     | string   | Yes      | IP address to lookup                                              |
+| params | string[] | No       | Modules: `location`, `security`, `timezone`, `currency`, `device` |
+| format | string   | No       | Response format: `JSON`, `XML`, `CSV`, `Newline`                  |
+| lang   | string   | No       | Language: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, `RU`          |
+| mode   | string   | No       | `live` (default) or `test`                                        |
 
 ```javascript
-await BulkLookup({
-  key: 'your-api-key',
-  ips: ['1.1.1.1', '2.2.2.2'],
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await Lookup({ key: 'your-api-key', ip: '1.1.1.1' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 5. ASN Lookup Method
+### 4. Bulk IP Lookup
 
-In this method, Greip will help you lookup any given AS Number and returning all data related to it, like: name, org (the organization name), country, domain, email, phone, totalIPs, list of all routes (v4 & v6) related the given AS Number, etc.
+**Options:**
+
+| Option | Type     | Required | Description                                                       |
+| ------ | -------- | -------- | ----------------------------------------------------------------- |
+| key    | string   | Yes      | Your API key                                                      |
+| ips    | string[] | Yes      | Array of IP addresses                                             |
+| params | string[] | No       | Modules: `location`, `security`, `timezone`, `currency`, `device` |
+| format | string   | No       | Response format: `JSON`, `XML`, `CSV`, `Newline`                  |
+| lang   | string   | No       | Language: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, `RU`          |
+| mode   | string   | No       | `live` (default) or `test`                                        |
 
 ```javascript
-await ASN({
-  key: 'your-api-key',
-  asn: 'AS01',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await BulkLookup({ key: 'your-api-key', ips: ['1.1.1.1', '2.2.2.2'] })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 6. Profanity Detection Method
+### 5. ASN Lookup
 
-This method can be used to detect abuse of your website/app. It’s a great way to know more about your user inputs and whether they contain profanity (bad words) or not before releasing them to the public.
+**Options:**
+
+| Option | Type   | Required | Description                |
+| ------ | ------ | -------- | -------------------------- |
+| key    | string | Yes      | Your API key               |
+| asn    | string | Yes      | ASN to lookup              |
+| mode   | string | No       | `live` (default) or `test` |
 
 ```javascript
-await BadWord({
-  key: 'your-api-key',
-  text: 'This is just normal sample text.',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await ASN({ key: 'your-api-key', asn: 'AS01' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 7. Country Lookup Method
+### 6. Profanity Detection
 
-This method can help you retrieve information of the given country.
+**Options:**
+
+| Option | Type     | Required | Description                                              |
+| ------ | -------- | -------- | -------------------------------------------------------- |
+| key    | string   | Yes      | Your API key                                             |
+| text   | string   | Yes      | Text to check                                            |
+| params | string[] | No       | Additional params (see docs)                             |
+| format | string   | No       | Response format: `JSON`, `XML`, `CSV`                    |
+| lang   | string   | No       | Language: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, `RU` |
+| mode   | string   | No       | `live` (default) or `test`                               |
 
 ```javascript
-await Country({
-  key: 'your-api-key',
-  countryCode: 'SA',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await BadWord({ key: 'your-api-key', text: 'Sample text.' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 8. Email Validation Method
+### 7. Country Lookup
 
-This method provides an additional layer of validation for your system. While validating email syntax is important, it is not sufficient.
+**Options:**
 
-This method goes beyond syntax validation by checking the domain’s validity, the availability of the Mail Service, detecting Disposable Email (Temporary Emails), etc. By utilising this method, you can ensure a more thorough validation process for email addresses.
+| Option      | Type     | Required | Description                                              |
+| ----------- | -------- | -------- | -------------------------------------------------------- |
+| key         | string   | Yes      | Your API key                                             |
+| countryCode | string   | Yes      | ISO 3166-1 alpha-2 country code                          |
+| params      | string[] | No       | Modules: `language`, `flag`, `currency`, `timezone`      |
+| format      | string   | No       | Response format: `JSON`, `XML`, `CSV`, `Newline`         |
+| lang        | string   | No       | Language: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, `RU` |
+| mode        | string   | No       | `live` (default) or `test`                               |
 
 ```javascript
-await EmailValidation({
-  key: 'your-api-key',
-  email: 'name@domain.com',
-})
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await Country({ key: 'your-api-key', countryCode: 'SA' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 9. Phone Validation Method
+### 8. Email Validation
 
-This method can be used as an extra-layer of your system for validating phone numbers. It validates phone number syntax and valid-possibility.
+**Options:**
+
+| Option | Type   | Required | Description                |
+| ------ | ------ | -------- | -------------------------- |
+| key    | string | Yes      | Your API key               |
+| email  | string | Yes      | Email to validate          |
+| mode   | string | No       | `live` (default) or `test` |
+
+```javascript
+await EmailValidation({ key: 'your-api-key', email: 'name@domain.com' })
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
+```
+
+### 9. Phone Validation
+
+**Options:**
+
+| Option      | Type   | Required | Description                |
+| ----------- | ------ | -------- | -------------------------- |
+| key         | string | Yes      | Your API key               |
+| phone       | string | Yes      | Phone number               |
+| countryCode | string | Yes      | Country code (ISO)         |
+| mode        | string | No       | `live` (default) or `test` |
 
 ```javascript
 await PhoneValidation({
@@ -236,117 +253,62 @@ await PhoneValidation({
   phone: '123123123',
   countryCode: 'US',
 })
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 10. Payment Fraud Prevention Method
+### 10. Payment Fraud Prevention
 
-Prevent financial losses by deploying AI-Powered modules.
+**Options:**
+
+| Option | Type   | Required | Description                                                                                                       |
+| ------ | ------ | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| key    | string | Yes      | Your API key                                                                                                      |
+| data   | object | Yes      | Transaction data ([see all fields](https://docs.greip.io/api-reference/endpoint/scoring/payment#body-parameters)) |
+| mode   | string | No       | `live` (default) or `test`                                                                                        |
 
 ```javascript
 await PaymentFraud({
   key: 'your-api-key',
   data: {
-    action: 'purchase',
-    website_domain: '',
-    website_name: '',
-    merchant_id: 21,
-    shipment_id: 1,
-    transaction_id: 100,
-    transaction_amount: 1000000,
-    transaction_currency: 'GBP',
-    cart_items: {
-      item_id: 1,
-      item_name: 'Product name',
-      item_quantity: 1,
-      item_price: '1100.55',
-      item_category_id: 1,
-    },
-    isDigitalProducts: true,
-    coupon: 'ASDF',
-    customer_id: 1,
-    customer_firstname: 'First',
-    customer_lastname: 'Last',
-    customer_pob: 'London',
-    customer_ip: '1.1.1.1',
-    customer_country: 'GB',
-    customer_region: 'London',
-    customer_city: 'London',
-    customer_zip: 'NW10 7PQ',
-    customer_street: '7 Coronation Road',
-    customer_street2: '',
-    customer_latitude: 0.123,
-    customer_longitude: 0.123,
-    customer_device_id: 'UNIQUE_DEVICE_ID',
-    customer_phone: '000000000',
-    customer_registration_date: 1677554670,
-    customer_balance: '1000.00',
-    customer_dob: '1997-19-05',
-    customer_email: 'name@domain.com',
-    customer_2fa: true,
-    customer_useragent: 'Mozill almaden sdfwer',
-    shipping_country: 'GB',
-    shipping_region: 'London',
-    shipping_city: 'London',
-    shipping_zip: 'NW10 7PQ',
-    shipping_street: '7 Coronation Road',
-    shipping_street2: '',
-    shipping_latitude: 0.123,
-    shipping_longitude: 0.123,
-    billing_country: 'GB',
-    billing_region: 'London',
-    billing_city: 'London',
-    billing_zip: 'NW10 7PQ',
-    billing_street: '7 Coronation Road',
-    billing_street2: '',
-    billing_latitude: 0.123,
-    billing_longitude: 0.123,
-    payment_type: 'applepay',
-    card_name: 'First Last',
-    card_number: '1234XXXXXXXX1234',
-    card_expiry: '29/05',
-    cvv_result: true,
+    // ...transaction and customer details...
   },
 })
-  .then((res: any) => {
-    console.log(res.data); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+  .then((res) => console.log(res.data))
+  .catch((error) => console.error(error));
 ```
 
-### 11. IBAN Validation Method
+### 11. IBAN Validation
 
-This method allows you to validate International Bank Account Numbers (IBANs) and retrieve additional information about the country associated with the IBAN.
+**Options:**
+
+| Option | Type   | Required | Description                |
+| ------ | ------ | -------- | -------------------------- |
+| key    | string | Yes      | Your API key               |
+| iban   | string | Yes      | IBAN to validate           |
+| mode   | string | No       | `live` (default) or `test` |
 
 ```javascript
-await IBANValidation({
-  key: 'your-api-key',
-  iban: 'BY86AKBB10100000002966000000',
-})
-  .then((res: any) => {
-    console.log(res); // Log Response
-  })
-  .catch((error: any) => {
-    console.log(error);
-  });
+await IBANValidation({ key: 'your-api-key', iban: 'BY86AKBB10100000002966000000' })
+  .then((res) => console.log(res))
+  .catch((error) => console.error(error));
 ```
 
-## Options, Methods and More
+---
 
-You can find the full guide of this package by visiting our [documentation page](https://docs.greip.io/).
+## Documentation
+
+For detailed documentation, options, and advanced usage, please visit our [official documentation](https://docs.greip.io/).
+
+---
 
 ## Credits
 
 - [Greip Developers](https://greip.io)
 - [All Contributors](https://github.com/Greipio/javascript/graphs/contributors)
 
-## Repo Activity
+---
 
-![Alt](https://repobeats.axiom.co/api/embed/db51cf11f87d8fdca78afb81e7711761affa247f.svg "Repobeats analytics image")
+## Repository Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/db51cf11f87d8fdca78afb81e7711761affa247f.svg 'Repobeats analytics image')
