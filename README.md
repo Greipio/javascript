@@ -40,15 +40,31 @@ npm install greip.js --save
 yarn add greip.js
 ```
 
+For the Greip API v2 release line:
+
+```bash
+npm install greip.js@3
+```
+
 ### CDN Integration
 
 Add the following script tag to your HTML file:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Greipio/javascript/greip.bundle.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/Greipio/javascript@v3.0.0/greip.bundle.js" type="text/javascript"></script>
 ```
 
 > **Note:** For Node.js environments, please use our [Node.js library](https://github.com/Greipio/node).
+
+---
+
+## Greip API v2 (`greip.js` 3.x)
+
+This major release targets **[Greip API v2](https://v2.greipapi.com)**. See [CHANGELOG.md](./CHANGELOG.md).
+
+- Pass your API key as the `key` option (sent as **Bearer** authorization).
+- Promises resolve with the API **`data`** payload, not `res.data`.
+- Use v2 field names (`ip.address`, `geo.country_code`, `is_valid`, `risk_level`, etc.).
 
 ---
 
@@ -107,7 +123,7 @@ Below are examples for each available method. All methods return Promises.
 
 ```javascript
 await GeoIP({ key: 'your-api-key' })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -124,7 +140,7 @@ await GeoIP({ key: 'your-api-key' })
 
 ```javascript
 await Threats({ key: 'your-api-key', ip: '1.1.1.1' })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -143,7 +159,7 @@ await Threats({ key: 'your-api-key', ip: '1.1.1.1' })
 
 ```javascript
 await Lookup({ key: 'your-api-key', ip: '1.1.1.1' })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res.ip.address))
   .catch((error) => console.error(error));
 ```
 
@@ -162,7 +178,7 @@ await Lookup({ key: 'your-api-key', ip: '1.1.1.1' })
 
 ```javascript
 await BulkLookup({ key: 'your-api-key', ips: ['1.1.1.1', '2.2.2.2'] })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -177,8 +193,8 @@ await BulkLookup({ key: 'your-api-key', ips: ['1.1.1.1', '2.2.2.2'] })
 | mode   | string | No       | `live` (default) or `test` |
 
 ```javascript
-await ASN({ key: 'your-api-key', asn: 'AS01' })
-  .then((res) => console.log(res.data))
+await ASN({ key: 'your-api-key', asn: 'AS13335' })
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -197,7 +213,7 @@ await ASN({ key: 'your-api-key', asn: 'AS01' })
 
 ```javascript
 await BadWord({ key: 'your-api-key', text: 'Sample text.' })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -216,7 +232,7 @@ await BadWord({ key: 'your-api-key', text: 'Sample text.' })
 
 ```javascript
 await Country({ key: 'your-api-key', countryCode: 'SA' })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -232,7 +248,7 @@ await Country({ key: 'your-api-key', countryCode: 'SA' })
 
 ```javascript
 await EmailValidation({ key: 'your-api-key', email: 'name@domain.com' })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -253,7 +269,7 @@ await PhoneValidation({
   phone: '123123123',
   countryCode: 'US',
 })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
@@ -274,7 +290,7 @@ await PaymentFraud({
     // ...transaction and customer details...
   },
 })
-  .then((res) => console.log(res.data))
+  .then((res) => console.log(res))
   .catch((error) => console.error(error));
 ```
 
