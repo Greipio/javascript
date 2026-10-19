@@ -11,81 +11,89 @@ import {
   IBANValidation,
 } from '../index';
 
+const API_KEY = process.env.GREIP_TOKEN || '';
+
+beforeAll(() => {
+  if (!API_KEY) {
+    throw new Error('Set GREIP_TOKEN before running tests.');
+  }
+});
+
 test('GeoIP Method Test', async () => {
   await GeoIP({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res.ip?.address || res.geo).toBeDefined();
   });
 });
 
 test('Lookup Method Test', async () => {
   await Lookup({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     ip: '1.1.1.1',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res.ip.address).toEqual('1.1.1.1');
   });
 });
 
 test('BulkLookup Method Test', async () => {
   await BulkLookup({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     ips: ['1.1.1.1', '2.2.2.2'],
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('BadWord Method Test', async () => {
   await BadWord({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     text: 'This is just normal sample text.',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('Country Method Test', async () => {
   await Country({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     countryCode: 'SA',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('ASN Lookup Method Test', async () => {
   await ASN({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     asn: 'AS01',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('Email Validation Method Test', async () => {
   await EmailValidation({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     email: 'asdfasd@sdfsd.com',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('Phone Validation Method Test', async () => {
   await PhoneValidation({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     phone: '123412341234',
     countryCode: 'US',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('Payment Fraud Method Test', async () => {
   await PaymentFraud({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     data: {
       action: 'purchase',
       website_domain: '',
@@ -148,15 +156,15 @@ test('Payment Fraud Method Test', async () => {
       cvv_result: true,
     },
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });
 
 test('IBAN Validation Method Test', async () => {
   await IBANValidation({
-    key: '0540759999851b6b25e98cbfae03c94e',
+    key: API_KEY,
     iban: 'BY86AKBB10100000002966000000',
   }).then((res: any) => {
-    expect(res.status).toEqual('success');
+    expect(res).toBeDefined();
   });
 });

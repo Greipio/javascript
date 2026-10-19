@@ -74,7 +74,7 @@ export const GeoIP = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/geoip',
+      '/geo/ip',
       {
         key: options.key,
         params: params.join(','),
@@ -161,9 +161,8 @@ export const Lookup = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/lookup/ip',
+      `/lookup/ip/${encodeURIComponent(ip1)}`,
       {
-        ip: ip1,
         key: options.key,
         params: params.join(','),
         format: format1,
@@ -217,9 +216,8 @@ export const Threats = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/lookup/ip/threats',
+      `/score/ip/${encodeURIComponent(ip1)}`,
       {
-        ip: ip1,
         key: options.key,
         format: format1,
         mode: mode1,
@@ -307,9 +305,9 @@ export const BulkLookup = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/lookup/ip/bulk',
+      '/geo/ip/bulk',
       {
-        ips: ips1,
+        ips: ips1.join(','),
         key: options.key,
         params: params.join(','),
         format: format1,
@@ -398,9 +396,8 @@ export const Country = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/lookup/country',
+      `/lookup/countries/${encodeURIComponent(countryCode)}`,
       {
-        CountryCode: countryCode,
         key: options.key,
         params: params.join(','),
         format: format1,
@@ -468,8 +465,8 @@ export const BadWord = (options: Options) => {
         ),
       );
     }
-    makeHttpRquest(
-      '/scoring/profanity',
+    makePostRquest(
+      'score/text',
       {
         text: text1,
         key: options.key,
@@ -513,9 +510,8 @@ export const ASN = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/lookup/asn',
+      `/lookup/asn/${encodeURIComponent(asn1)}`,
       {
-        asn: asn1,
         key: options.key,
         mode: mode1,
       },
@@ -554,9 +550,8 @@ export const EmailValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/scoring/email',
+      `/score/email/${encodeURIComponent(email1)}`,
       {
-        email: email1,
         key: options.key,
         mode: mode1,
       },
@@ -595,7 +590,7 @@ export const PaymentFraud = (options: Options) => {
       );
     }
     makePostRquest(
-      'paymentFraud',
+      'score/payments',
       {
         data: data1,
         key: options.key,
@@ -637,10 +632,9 @@ export const PhoneValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/scoring/phone',
+      `/score/phone/${encodeURIComponent(phone1)}`,
       {
-        phone: phone1,
-        countryCode: countryCode1,
+        country_code: countryCode1,
         key: options.key,
         mode: mode1,
       },
@@ -679,9 +673,8 @@ export const IBANValidation = (options: Options) => {
       );
     }
     makeHttpRquest(
-      '/lookup/iban',
+      `/lookup/iban/${encodeURIComponent(iban1)}`,
       {
-        iban: iban1,
         key: options.key,
         mode: mode1,
       },
